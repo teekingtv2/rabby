@@ -44,7 +44,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/api" element={<APIPage />} />
 
-            <Route path="/transactions" element={<TransactionsPage />} />
+            {/* <Route path="/transactions" element={<TransactionsPage />} />
             <Route path="/withdraw" element={<WithdrawPage />} />
             <Route path="/edit-profile" element={<EditProfilePage />} />
             <Route path="/edit-password" element={<EditPasswordPage />} />
@@ -53,7 +53,7 @@ function App() {
             <Route path="/verify-account" element={<VerifyEmailPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-            <Route path="/reset-password" element={<ResetPasswordPage />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} /> */}
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>

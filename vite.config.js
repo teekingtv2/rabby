@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: 'https://user.bitblockservice.com/',
+  base: 'https://elder-intelligence.vercel.app/',
   plugins: [react()],
 });
