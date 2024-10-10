@@ -3,7 +3,7 @@ import { partnerLogos } from "../../utils/data";
 
 const HomeSectionThree = () => {
   return (
-    <div className="w-[100vw] bg-[#000000cc] flex flex-col items-center">
+    <div className="w-[100vw] bg-[#000000eb] flex flex-col items-center">
       <div className="max-w-[1000px] py-[90px] md:py-[150px] items-center px-8 md:px-0">
         <div className="w-full md:w-[70%] mx-auto text-center mb-7">
           <h1 className="text-white text-[30px] md:text-[40px] uppercase mb-5 ">

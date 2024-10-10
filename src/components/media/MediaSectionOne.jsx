@@ -5,7 +5,7 @@ import { partnerLogos } from "../../utils/data";
 
 const MediaSectionOne = () => {
   return (
-    <div className="w-[100vw] bg-[#000000cc] flex flex-col items-center">
+    <div className="w-[100vw] bg-[#000000ee] flex flex-col items-center">
       <video src={bannerVidBg} autoPlay loop muted className="banner-vd" />
       <NavBar />
       <div className="top-[100px] h-full max-w-[1000px] pt-[17vh] md:pt-[200px] pb-[180px] md:pb-[200px] items-center px-10 md:px-0">

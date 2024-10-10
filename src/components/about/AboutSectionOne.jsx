@@ -4,7 +4,7 @@ import bannerVidBg from "../../../public/assets/videos/banner-bg.mp4";
 
 const AboutSectionOne = () => {
   return (
-    <div className="w-[100vw] bg-[#000000cc] flex flex-col items-center">
+    <div className="w-[100vw] bg-[#000000e1] flex flex-col items-center">
       <video src={bannerVidBg} autoPlay loop muted className="banner-vd" />
       <NavBar />
       <div className="top-[100px] h-full container pt-[150px] pb-[100px] md:pt-[200px] md:pb-[200px] items-center px-10 md:px-0">

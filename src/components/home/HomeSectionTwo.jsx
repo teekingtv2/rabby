@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HomeSectionTwo = () => {
   return (
-    <div className="w-[100vw] bg-[#000000f0] flex flex-col items-center">
+    <div className="w-[100vw] bg-[#000000fc] flex flex-col items-center">
       <div className="max-w-[1000px] pt-[110px] md:pt-[170px] pb-[100px] md:pb-[100px] items-center px-5 md:px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-1">
           <div className="col-span-1 flex flex-col gap-5 md:gap-10">

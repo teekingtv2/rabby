@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const AboutSectionThree = () => {
   return (
-    <div className="w-[100vw] bg-[#000000cc] flex flex-col items-center">
+    <div className="w-[100vw] bg-[#000000e3] flex flex-col items-center">
       <div className="max-w-[1000px] pt-[100px] md:pt-[100px] pb-[180px] md:pb-[170px] items-center px-10 md:px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
           <div className="col-span-1 flex justify-center items-center">

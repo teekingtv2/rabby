@@ -6,7 +6,7 @@ import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
 
 const MarketsSectionOne = () => {
   return (
-    <div className="w-[100vw] bg-[#000000cc] flex flex-col items-center">
+    <div className="w-[100vw] bg-[#000000ee] flex flex-col items-center">
       <video src={bannerVidBg} autoPlay loop muted className="banner-vd" />
       <NavBar />
       <div className="top-[100px] h-full container pt-[17vh] md:pt-[200px] pb-[180px] md:pb-[200px] items-center px-5 md:px-0">
