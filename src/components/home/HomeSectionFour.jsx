@@ -17,7 +17,7 @@ const HomeSectionFour = () => {
               simultaneously - unlike legacy solutions built for a single
               cryptoasset world.
             </p>
-            <Link to="/register" className="hidden md:flex">
+            <Link to="/register" className="flex">
               <div className="btnn1 text-sm font-bold flex justify-center items-center hover:scale-105 ease-in duration-300">
                 <span className="mr-2">Get Started</span>
                 <span>

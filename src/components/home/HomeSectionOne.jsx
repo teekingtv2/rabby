@@ -10,13 +10,13 @@ const HomeSectionOne = () => {
       {/* <video src={bannerVidBg} autoPlay loop muted className="banner-vd" /> */}
       <div className="banner-vd"></div>
       <NavBar />
-      <div className="top-[100px] container h-[70vh] md:h-[80%] md:py-10 relative px-8 md:px-10 flex flex-col gap-6">
+      <div className="top-[100px] container h-[80vh] md:h-[80%] md:py-10 relative px-8 md:px-10 flex flex-col gap-3 md:gap-6">
         <div className="relative w-[100%] md:w-[45%] h-[65vh] md:h-[80vh]">
           <div className="absolute left-0 bottom-5 md:bottom-3 flex flex-col gap-5">
             <h1 className=" text-white text-[30px] md:text-[40px] uppercase ">
               Deamonizing the blockchain industry
             </h1>
-            <Link to="/register" className="hidden md:flex">
+            <Link to="/register" className="flex">
               <div className="btnn1 text-sm font-bold flex justify-center items-center hover:scale-105 ease-in duration-300">
                 <span className="mr-2">Explore platform</span>
                 <span>
