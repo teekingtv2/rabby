@@ -1,5 +1,5 @@
-@import url('./font.css');
-@import url('./animations.css');
+@import url("./font.css");
+@import url("./animations.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,10 +14,10 @@ html {
 @layer base {
   body,
   .body {
-    @apply text-[#bebebe] tracking-wide overflow-x-hidden w-[100vw] min-h-screen;
-    background-image: url('/assets/images/bg-2.gif');
+    @apply bg-[#0A0D16] text-[#bebebe] tracking-wide overflow-x-hidden w-[100vw] min-h-screen;
+    /* background-image: url('/assets/images/bg-2.gif');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     /* background-position: center center; */
   }
 
@@ -64,16 +64,71 @@ html {
     @apply font-light leading-[1.59rem];
   }
 
-  button,
-  .primary-btn {
-    @apply bg-gradient-to-r from-[#ffffff] to-[#fefefefe] text-black;
-    padding: 10px 40px;
+  button {
+    @apply bg-gradient-to-r from-[#939ba3] to-[#939ba3] text-black;
+    padding: 6px 40px;
     border-radius: 10px;
     font-weight: 500;
   }
 
+  input,
+  select,
+  .pass-field {
+    height: 42px;
+    padding: 2px 15px;
+    font-size: 12px !important;
+    font-weight: 300;
+    border: 0px;
+    color: #fff;
+    background: -webkit-linear-gradient(45deg, transparent 6px, #181b24 6px),
+      -webkit-linear-gradient(135deg, transparent 6px, #181b24 6px),
+      -webkit-linear-gradient(225deg, transparent 6px, #181b24 6px),
+      -webkit-linear-gradient(315deg, transparent 6px, #181b24 6px);
+    background-position: bottom left, bottom right, top right, top left;
+    -moz-background-size: 50% 50%;
+    -webkit-background-size: 50% 50%;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .dashboardBox {
+    position: absolute;
+    color: #fff;
+    box-shadow: 2px 2px 10px;
+    background: -webkit-linear-gradient(45deg, transparent 8px, #000 8px),
+      -webkit-linear-gradient(135deg, transparent 8px, #000 8px),
+      -webkit-linear-gradient(225deg, transparent 8px, #000 8px),
+      -webkit-linear-gradient(315deg, #ffffff00 8px, #000 8px);
+    background-position: bottom left, bottom right, top right, top left;
+    -moz-background-size: 50% 50%;
+    -webkit-background-size: 50% 50%;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  @media (max-width: 500px) {
+    input,
+    select,
+    .pass-field {
+      height: 50px;
+    }
+  }
+
+  .pass-field {
+    padding: 2px;
+  }
+
+  option {
+    background-color: #181b24;
+    color: #939ba3;
+    font-size: 11px;
+  }
+
   input::placeholder {
-    font-size: 13px;
+    color: #5e6266;
+    font-size: 12px;
     font-weight: 400;
   }
   .dashCard {
@@ -85,7 +140,7 @@ html {
 }
 
 .images-footer {
-  background-image: url('/assets/images/bg-2.gif');
+  background-image: url("/assets/images/bg-2.gif");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -96,29 +151,16 @@ html {
   margin: auto;
 }
 .active {
-  color: #fff !important
+  color: #fff !important;
 }
-
-/* .btnn {
-  padding: 7px 10px;
-  background: #fff;
-  position: relative;
-  color: #0A0D16;
-}
-.btnn::before{
-  content: '';
-  position: absolute;
-  top: 0; 
-  right: 0;
-  border-top: 10px solid #0A0D16;
-  border-bottom: 10px solid #0A0D16;
-  border-left: 10px solid #fff;
-} */
 
 .btnn1 {
   padding: 12px 15px;
-  color: #0A0D16;
-  background: -webkit-linear-gradient(45deg, transparent 6px, #FFF 6px), -webkit-linear-gradient(135deg, transparent 6px, #FFF 6px), -webkit-linear-gradient(225deg, transparent 6px, #FFF 6px), -webkit-linear-gradient(315deg, transparent 6px, #FFF 6px);
+  color: #0a0d16;
+  background: -webkit-linear-gradient(45deg, transparent 6px, #fff 6px),
+    -webkit-linear-gradient(135deg, transparent 6px, #fff 6px),
+    -webkit-linear-gradient(225deg, transparent 6px, #fff 6px),
+    -webkit-linear-gradient(315deg, transparent 6px, #fff 6px);
   background-position: bottom left, bottom right, top right, top left;
   -moz-background-size: 50% 50%;
   -webkit-background-size: 50% 50%;
@@ -126,10 +168,25 @@ html {
   background-repeat: no-repeat;
   position: relative;
 }
-.btnn1:hover{
+.btnn1:hover,
+.btnn2:hover {
   background: transparent;
   color: #fff;
-  border: 2px solid #ffff
+  border: 2px solid #ffff;
+}
+.btnn2 {
+  padding: 8px 15px !important;
+  color: #0a0d16;
+  background: -webkit-linear-gradient(45deg, transparent 6px, #fff 6px),
+    -webkit-linear-gradient(135deg, transparent 6px, #fff 6px),
+    -webkit-linear-gradient(225deg, transparent 6px, #fff 6px),
+    -webkit-linear-gradient(315deg, transparent 6px, #fff 6px);
+  background-position: bottom left, bottom right, top right, top left;
+  -moz-background-size: 50% 50%;
+  -webkit-background-size: 50% 50%;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .banner-vd {
@@ -138,6 +195,10 @@ html {
   object-fit: cover;
   z-index: -10000;
   position: fixed;
+  background-image: url("/assets/videos/bg.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
 .upppercase {

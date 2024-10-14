@@ -24,7 +24,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="fixed w-full shadow-lg z-[100] py-3 md:py-4 px-5 md:px-10 bg-[#000000f3] md:bg-[#000000bd]">
+      <div className="fixed w-full shadow-lg z-[100] py-3 md:py-4 px-5 md:px-10 bg-[#00000000] md:bg-[#000000bd]">
         <div className="flex justify-between items-center w-full h-full">
           <Link to="/" className="flex flex-col gap-0">
             <p className="uppercase font-bold text-[20px] md:text-[25px] text-white tracking-[8px] md:tracking-[10px] leading-[12px] md:leading-[20px] mb-0">
@@ -108,7 +108,7 @@ const NavBar = () => {
               >
                 <li className="navLink">API</li>
               </Link>
-              <Link to="#" className="hidden md:flex">
+              <Link to="/register" className="hidden md:flex">
                 <div className="btnn1 text-sm font-bold flex justify-center items-center hover:scale-105 ease-in duration-300">
                   <span className="mr-2">Register with us</span>
                   <span>
@@ -220,6 +220,15 @@ const NavBar = () => {
                   className={activeLink === "api" ? "active" : "text-gray-200"}
                 >
                   <li className="py-4 text-sm">API</li>
+                </Link>
+                <Link
+                  onClick={() => setNav(false)}
+                  to="/register"
+                  className={
+                    activeLink === "register" ? "active" : "text-gray-200"
+                  }
+                >
+                  <li className="py-4 text-sm">Register</li>
                 </Link>
               </ul>
               <div className="pt-40">

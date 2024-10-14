@@ -7,7 +7,8 @@ import { FaArrowCircleRight } from "react-icons/fa";
 const HomeSectionOne = () => {
   return (
     <div className="h-[100vh] w-[100vw] bg-[#000000eb]">
-      <video src={bannerVidBg} autoPlay loop muted className="banner-vd" />
+      {/* <video src={bannerVidBg} autoPlay loop muted className="banner-vd" /> */}
+      <div className="banner-vd"></div>
       <NavBar />
       <div className="top-[100px] container h-[70vh] md:h-[80%] md:py-10 relative px-8 md:px-10 flex flex-col gap-6">
         <div className="relative w-[100%] md:w-[45%] h-[65vh] md:h-[80vh]">

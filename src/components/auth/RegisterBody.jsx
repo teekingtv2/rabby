@@ -1,14 +1,14 @@
-import React from 'react';
-import InputField from '../forms/InputField';
-import CustomFormik from '../../utils/CustomFormik';
-import { validateSignup } from '../../utils/validate';
-import { signUpValues } from '../../utils/initialValues';
-import SubmitButton from '../forms/SubmitButton';
-import { Link, useNavigate } from 'react-router-dom';
-import SelectCountryField from '../forms/SelectCountryField';
-import SelectNetworkField from '../forms/SelectNetworkField';
-import { errorNotification, successNotification } from '../../utils/helpers';
-import axios from 'axios';
+import React from "react";
+import InputField from "../forms/InputField";
+import CustomFormik from "../../utils/CustomFormik";
+import { validateSignup } from "../../utils/validate";
+import { signUpValues } from "../../utils/initialValues";
+import SubmitButton from "../forms/SubmitButton";
+import { Link, useNavigate } from "react-router-dom";
+import SelectCountryField from "../forms/SelectCountryField";
+import SelectNetworkField from "../forms/SelectNetworkField";
+import { errorNotification, successNotification } from "../../utils/helpers";
+import axios from "axios";
 
 const RegisterBody = () => {
   const initialValues = signUpValues();
@@ -19,14 +19,13 @@ const RegisterBody = () => {
     const payload = {
       name: values.name,
       email: values.email,
-      wallet: values.wallet,
-      network: values.network,
-      country: values.country,
-      phone: values.phone,
       password: values.password,
     };
 
-    const response = await axios.post(`${import.meta.env.VITE_API_URL}/user-auth/signup`, payload);
+    const response = await axios.post(
+      `${import.meta.env.VITE_API_URL}/user-auth/signup`,
+      payload
+    );
     console.log(response);
     try {
       if (response.status === 200) {
@@ -34,7 +33,7 @@ const RegisterBody = () => {
         successNotification(data.message);
         setTimeout(
           () =>
-            history('/verify-account', {
+            history("/verify-account", {
               state: { userId: data.userId },
             }),
           3000
@@ -49,36 +48,51 @@ const RegisterBody = () => {
 
   return (
     <>
-      <div className="w-[100%] mx-auto">
-        <div className="p-2 bg-[#111111da] overflow-x-scroll pt-[50px] pb-[50px] register-box">
-          <div className="px-3">
-            <div className="text-[24px] text-center mb-1 font-bold text-[#fff]">
+      <div className="w-[100vw] md:h-[100vh] bg-[#0A0D16]">
+        <div className="max-w-[500px] h-full mx-auto px-5 md:px-0 flex flex-col items-center justify-center pt-[90px] pb-[150px] md:py-0">
+          <div className="flex flex-col items-center px-0">
+            <Link to="/" className="flex flex-col gap-0">
+              <p className="uppercase font-bold text-[22px] text-white tracking-[8px] leading-[15px] mb-0">
+                Elder
+              </p>
+              <p className="lowercase text-[12px] text-white tracking-widest mt-0">
+                Intelligence
+              </p>
+            </Link>
+            <div className="text-[24px] text-center mb-1 font-bold text-[#fff]"></div>
+
+            <div className="text-[14px] mb-5 text-[#ffffffc9]">
               Sign up to get started
             </div>
-            <div className="text-[13px] mb-5 text-[#ffffffc9]">
-              Copy and paste your wallet address correct from your trust/METAMASK wallet
-            </div>
           </div>
-          <div className="p-2 w-[100%]">
+          <div className="py-2">
             <CustomFormik
               initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={handleSubmit}
             >
-              <div className="font-bold text-[14.5px] md:text-[18px] uppercase grid grid-cols-1 gap-8 md:grid-cols-2 w-[100%] p-2 mb-2">
+              <div className="font-bold text-[14.5px] md:text-[18px] uppercase grid grid-cols-1 gap-5 w-[100%] mb-2">
                 <InputField name="name" placeholder="Your full name" />
                 <InputField name="email" placeholder="Your email address" />
-                <SelectNetworkField name="network" />
+                {/* <SelectNetworkField name="network" />
                 <InputField name="wallet" placeholder="Wallet address" />
                 <SelectCountryField name="country" />
-                <InputField name="phone" placeholder="Phone number" />
-                <InputField name="password" placeholder="Set password" type="password" />
-                <InputField name="confirmPassword" placeholder="Confirm password" type="password" />
+                <InputField name="phone" placeholder="Phone number" /> */}
+                <InputField
+                  name="password"
+                  placeholder="Set password"
+                  type="password"
+                />
+                <InputField
+                  name="confirmPassword"
+                  placeholder="Confirm password"
+                  type="password"
+                />
               </div>
-              <SubmitButton title="Sign up" className="mt-10 w-[100%]" />
-              <div className="text-[14px] md:text-[16px] text-center mt-[20px] flex justify-center gap-2">
+              <SubmitButton title="Sign up" className="mt-6 w-[100%]" />
+              <div className="text-[13px] md:text-[16px] text-center mt-[20px] flex justify-between gap-2">
                 Already have an account?
-                <Link to="/login" className="text-[#b99dfa]">
+                <Link to="/login" className="text-[#fff] font-semibold">
                   Login instead
                 </Link>
               </div>

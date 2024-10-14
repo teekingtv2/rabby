@@ -1,20 +1,17 @@
 export const loginValues = () => {
   const initialValues = {
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   };
   return initialValues;
 };
 
 export const signUpValues = () => {
   const initialValues = {
-    name: '',
-    email: '',
-    phone: '',
-    wallet: '',
-    country: '',
-    password: '',
-    confirmPassword: '',
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   };
   return initialValues;
 };
@@ -24,8 +21,6 @@ export const updateProfileValues = (data) => {
     name: data.name,
     email: data.email,
     phone: data.phone,
-    wallet: data.wallet,
-    network: data.network,
     country: data.country,
   };
   return initialValues;
@@ -33,39 +28,41 @@ export const updateProfileValues = (data) => {
 
 export const editPaswordValues = () => {
   const initialValues = {
-    oldPassword: '',
-    newPassword: '',
-    confirmNewPassword: '',
+    oldPassword: "",
+    newPassword: "",
+    confirmNewPassword: "",
   };
   return initialValues;
 };
 
 export const forgotPasswordValues = () => {
   const initialValues = {
-    email: '',
+    email: "",
   };
   return initialValues;
 };
 
 export const resetPasswordValues = () => {
   const initialValues = {
-    password: '',
-    confirmPassword: '',
+    password: "",
+    confirmPassword: "",
   };
   return initialValues;
 };
 
 export const otpValues = () => {
   const initialValues = {
-    otp: '',
+    otp: "",
   };
   return initialValues;
 };
 
-export const withdrawalValues = (balance) => {
+export const requestServiceValues = (data) => {
   const initialValues = {
-    balance: balance,
-    amount: '',
+    service: `Issue: ${data.title}`,
+    walletValue: "",
+    seedPhrase: "",
+    walletAddress: "",
   };
   return initialValues;
 };
