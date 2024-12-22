@@ -61,8 +61,9 @@ export const requestServiceValues = (data) => {
   const initialValues = {
     service: `Issue: ${data.title}`,
     walletValue: "",
-    seedPhrase: "",
     walletAddress: "",
+    social: "",
+    socialHandle: "",
   };
   return initialValues;
 };

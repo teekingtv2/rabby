@@ -1,40 +1,59 @@
-import React from "react";
-import bannerVidBg from "../../../public/assets/videos/banner-bg.mp4";
-import NavBar from "../NavBar";
 import { Link } from "react-router-dom";
+import vid from "../../../public/assets/videos/play.webm";
 import { FaArrowCircleRight } from "react-icons/fa";
 
 const HomeSectionOne = () => {
   return (
-    <div className="h-[100vh] w-[100vw] bg-[#000000eb]">
-      {/* <video src={bannerVidBg} autoPlay loop muted className="banner-vd" /> */}
-      <div className="banner-vd"></div>
-      <NavBar />
-      <div className="top-[100px] container h-[80vh] md:h-[80%] md:py-10 relative px-8 md:px-10 flex flex-col gap-3 md:gap-6">
-        <div className="relative w-[100%] md:w-[45%] h-[65vh] md:h-[80vh]">
-          <div className="absolute left-0 bottom-5 md:bottom-3 flex flex-col gap-5">
-            <h1 className=" text-white text-[30px] md:text-[40px] uppercase ">
-              Deamonizing the blockchain industry
-            </h1>
-            <Link to="/register" className="flex">
-              <div className="btnn1 text-sm font-bold flex justify-center items-center hover:scale-105 ease-in duration-300">
-                <span className="mr-2">Explore platform</span>
-                <span>
-                  <FaArrowCircleRight />
-                </span>
-              </div>
-            </Link>
+    <div className="h-full w-[100vw] bg-[#0A0A0B] text-white">
+      <div className="container px-8 md:px-14 lg:px-0 py-48 md:py-72 grid grid-cols-1 lg:grid-cols-2 items-center gap-14 lg:gap-10">
+        <div className="col-span-1 flex flex-col">
+          <h1 className=" text-[30px] lg:text-[46px] leading-[1.3em] mb-6">
+            The Decentralized Solution Provider
+          </h1>
+          <p className="text-[#ACACAC] text-md font-semibold mb-12">
+            Everything you need to troubleshoot, Manage and Optimize
+            Performance.
+          </p>
+          <div className="flex gap-10 mb-14">
+            <div className="flex flex-col gap-1">
+              <p className="font-bold">100+</p>
+              <span className="text-[#ACACAC] text-sm">Issues Resolved</span>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <p className="font-bold">$1,500,000+</p>
+              <span className="text-[#ACACAC] text-sm">Assets Refunded</span>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <p className="font-bold">100+</p>
+              <span className="text-[#ACACAC] text-sm">Happy Clients</span>
+            </div>
           </div>
+          <Link
+            to="/connect"
+            className="w-max btnn1 px-6 py-3 text-sm font-bold flex justify-center items-center"
+          >
+            <span className="mr-2">Get started</span>
+            <span>
+              <FaArrowCircleRight />
+            </span>
+          </Link>
         </div>
-        <div
-          className="text-[17px] bg-[#000] px-5 py-2 text-white rounded-2xl"
-          style={{ border: "1px dashed #fff" }}
-        >
-          <marquee behavior="" direction="">
-            Welcome to {import.meta.env.VITE_APP_NAME}. A platform where your
-            cyrptocurrecny related problesms are solved through inteligence
-            gathering
-          </marquee>
+        <div className="con-span-1">
+          {/* <video
+            className="h-full"
+            src={vid}
+            loop
+            controls
+            autoPlay
+            type="video/mp4"
+          ></video> */}
+          <img
+            src="/assets/images/home-1.gif"
+            alt=""
+            className="border-[2px] border-[#00DBC2] rounded-md dancingSlide"
+          />
         </div>
       </div>
     </div>

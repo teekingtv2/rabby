@@ -20,7 +20,7 @@ const Head = ({ pageTitle }) => {
       <meta name="author" content="" />
       <link
         rel="shortcut icon"
-        href="/assets/images/logo.png"
+        href="/assets/images/favicon.png"
         type="image/x-icon"
       />
       <meta name="theme-color" content="#040204" />
