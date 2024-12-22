@@ -8,8 +8,12 @@ const WalletSectionOne = () => {
 
   useEffect(() => {
     let wallet_balance = localStorage.getItem("wallet_balance");
+    if (!wallet_balance) {
+      errorNotification("Please connect your wallet first");
+      navigate("/connect");
+    }
     const items = JSON.parse(wallet_balance);
-    console.log("items.length", items.length);
+    console.log("items.length", items?.length);
     if (items?.length == 0) {
       errorNotification("Please connect your wallet first");
       navigate("/connect");
