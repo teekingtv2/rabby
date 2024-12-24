@@ -14,9 +14,9 @@ const Loader = () => {
       }}
     >
       <BounceLoader
-        color="#00DBC2"
+        color="#808EFF"
         loading={true}
-        size={80}
+        size={90}
         aria-label="Loading Spinner"
         data-testid="loader"
       />

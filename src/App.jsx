@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar />
+        {/* <NavBar /> */}
         <div className="">
           <ToastContainer
             position="top-right"

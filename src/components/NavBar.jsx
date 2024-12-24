@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import { FaArrowCircleRight } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const path = window.location.pathname.split("/");
+  const pathname = path[path.length - 1];
+  const [activeLink, setActiveLink] = useState(pathname);
   const [nav, setNav] = useState(false);
-  const [activeLink, setActiveLink] = useState("home");
 
   const handleNavToggle = () => {
     setNav(!nav);
@@ -14,27 +17,130 @@ const NavBar = () => {
     setActiveLink(value);
   };
 
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <>
-      <div className="fixed w-full shadow-lg z-[100] bg-[#0A0A0B]">
-        <div className="container py-3 lg:py-4 px-5 md:px-10 lg:px-0 flex justify-between items-center w-full h-full">
-          <Link to="/" className="flex flex-col gap-0">
-            <p className="uppercase font-bold text-[18px] lg:text-[20px] text-white tracking-[2px] lg:tracking-[8px] mb-0">
-              Decentralized
-            </p>
-            <p className="lowercase text-[11px] md:text-[14px] text-[#00DBC2] tracking-widest mt-0">
-              Launchpad
-            </p>
+      <div className="w-full z-[100]">
+        <div className="container flex justify-between items-center w-full h-full py-3 md:py-4 px-5 lg:px-0">
+          <Link to="/" className="flex gap-2 items-center">
+            <img src="/assets/images/logo.svg" alt="" />
           </Link>
-          <Link
-            to="/connect"
-            className="btnn1 px-4 py-2 text-sm font-bold flex justify-center items-center"
+          <div>
+            <ul
+              // style={{ color: `${linkColor}` }}
+              className="hidden md:flex gap-7 text-[16px] font-medium items-center"
+            >
+              <Link
+                to="/"
+                className={
+                  activeLink === "contact" ? "active menu-link" : "menu-link"
+                }
+                onClick={() => onUpdateActiveLink("contact")}
+              >
+                <li className="navLink">Contact Us</li>
+              </Link>
+              <Link
+                to="/"
+                className={
+                  activeLink === "support" ? "active menu-link" : "menu-link"
+                }
+                onClick={() => onUpdateActiveLink("support")}
+              >
+                <li className="navLink">Support</li>
+              </Link>
+              <Link
+                to="/rabbykit"
+                className={
+                  activeLink === "rabbykit" ? "active menu-link" : "menu-link"
+                }
+                onClick={() => onUpdateActiveLink("rabbykit")}
+              >
+                <li className="navLink">RabbyKit</li>
+              </Link>
+              <Link
+                to="/integration-doc"
+                className={
+                  activeLink === "integration-doc"
+                    ? "active menu-link"
+                    : "menu-link"
+                }
+                onClick={() => onUpdateActiveLink("integration-doc")}
+              >
+                <li className="navLink">Integration Doc</li>
+              </Link>
+            </ul>
+            <div onClick={handleNavToggle} className="md:hidden">
+              <AiOutlineMenu className="text-gray-100" size={25} />
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        <div
+          className={
+            nav
+              ? "md:hidden fixed z-[150] right-0 top-0 w-full h-screen bg-black/25 "
+              : ""
+          }
+          style={{ zIndex: "11111" }}
+        >
+          <div
+            className={
+              nav
+                ? "fixed right-0 top-0 ease-in duration-500 h-max w-[35%] sm:w-[60%] md:w-[45%] bg-[#272727fa] p-5"
+                : "fixed right-[-130%] top-0 ease-in duration-500 p-10"
+            }
           >
-            <span className="mr-2">Get started</span>
-            <span>
-              <FaArrowCircleRight />
-            </span>
-          </Link>
+            <div className="flex justify-end">
+              <div
+                onClick={handleNavToggle}
+                className="rounded-full shadow-md p-2 cursor-pointer text-gray-300"
+              >
+                <AiOutlineClose size={25} />
+              </div>
+            </div>
+            <div className="py-2 flex flex-col items-center">
+              <ul className="">
+                <Link
+                  onClick={() => setNav(false)}
+                  to=""
+                  className={
+                    activeLink === "home" ? "active" : "text-gray-200 "
+                  }
+                >
+                  <li className="py-4 text-sm">Contact Us</li>
+                </Link>
+                <Link
+                  onClick={() => setNav(false)}
+                  to=""
+                  className={
+                    activeLink === "about" ? "active" : "text-gray-200"
+                  }
+                >
+                  <li className="py-4 text-sm">Support</li>
+                </Link>
+                <Link
+                  onClick={() => setNav(false)}
+                  to=""
+                  className={
+                    activeLink === "media" ? "active" : "text-gray-200"
+                  }
+                >
+                  <li className="py-4 text-sm">RabbyKit</li>
+                </Link>
+                <Link
+                  onClick={() => setNav(false)}
+                  to=""
+                  className={
+                    activeLink === "alert" ? "active" : "text-gray-200"
+                  }
+                >
+                  <li className="py-4 text-sm">Integration Doc</li>
+                </Link>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </>
