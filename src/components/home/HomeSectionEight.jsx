@@ -25,12 +25,10 @@ const HomeSectionEight = () => {
               Dapps Integrated Rabby Wallet
             </p>
             <Link
-              to="/connect"
+              to="/get-started"
               className="rounded-full bg-[#7084FF] px-12 py-3 lg:py-5 w-max text-white flex items-center gap-2"
             >
-              <span className="textl-lg lg:text-xl font-bold">
-                Integrated Doc
-              </span>
+              <span className="textl-lg lg:text-xl font-bold">Get Started</span>
               <FaArrowRight />
             </Link>
           </div>

@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { ethers } from "ethers";
 import Web3 from "web3";
 import { errorNotification, successNotification } from "../../utils/helpers";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ConnectPage = () => {
+  const { state } = useLocation();
+  const walletType = state.walletType;
+  console.log("walletType", walletType);
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
   const [phrase, setPhrase] = useState("");
@@ -246,14 +249,16 @@ const ConnectPage = () => {
           onClick={() => setShow(true)}
           className="btnn2 px-4 py-3 w-full font-semibold text-center"
         >
-          Import Seed Phrase
+          {walletType === "software" ? "Import Seed Phrase" : "Keystore File"}
         </div>
 
         <div
           onClick={() => setShow(true)}
           className="btnn2 px-4 py-3 w-full font-semibold text-center"
         >
-          Import Private Key
+          {walletType === "software"
+            ? "Import Private Key"
+            : "Import Private Key"}
         </div>
       </div>
       {show ? (
@@ -263,7 +268,7 @@ const ConnectPage = () => {
             style={{ boxShadow: "4px 3px 10px #85a1fe3f" }}
           >
             <div className="flex justify-between items-center mb-10">
-              <p className="font-bold text-xl">Import Seed Phrase</p>
+              <p className="font-bold text-xl">Import Your Wallet</p>
 
               <div
                 className="h-[30px] w-[30px] flex justify-center items-center rounded-full border-[2px] border-[#333] cursor-pointer text-lg"
@@ -273,7 +278,7 @@ const ConnectPage = () => {
               </div>
             </div>
             <span className="text-sm mb-5">
-              Paste your wallet Seed Phrase here
+              Paste your wallet Seed Phrase/Private Key here
             </span>
             <form onSubmit={handleWalletImport} className="flex flex-col">
               <input

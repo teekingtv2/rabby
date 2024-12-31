@@ -19,7 +19,7 @@ const WalletSectionTwo = () => {
 
   return (
     <div className="h-full w-[100vw] bg-[#fff] text-[#808EFF] relative">
-      <div className="container px-8 md:px-14 lg:px-0 pb-48 md:pb-48 ">
+      <div className="container px-8 md:px-14 lg:px-0 pt-24 md:pt-20 pb-36 ">
         <div className="mb-8 text-center">
           <h1 className="text-2xl lg:text-3xl mb-3 text-black">
             Things you can do

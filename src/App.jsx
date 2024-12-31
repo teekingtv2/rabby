@@ -7,6 +7,7 @@ import Footer from "./components/Footer.jsx";
 import NavBar from "./components/NavBar.jsx";
 import ConnectPage from "./pages/connect/index.jsx";
 import WalletPage from "./pages/wallet/index.jsx";
+import GetStartedPage from "./pages/connect/get-started.jsx";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/connect" element={<ConnectPage />} />
+            <Route path="/get-started" element={<GetStartedPage />} />
             <Route path="/wallet" element={<WalletPage />} />
 
             <Route path="/*" element={<NotFound />} />

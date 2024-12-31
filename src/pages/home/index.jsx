@@ -14,12 +14,12 @@ const HomePage = () => {
     <>
       <Head pageTitle={`Welcome to ${import.meta.env.VITE_APPNAME}`} />
       <HomeSectionOne />
-      <RowTwoSection />
-      <HomeSectionThree />
-      <HomeSectionFour />
-      <HomeSectionFive />
+      {/* <RowTwoSection /> */}
+      {/* <HomeSectionThree /> */}
+      {/* <HomeSectionFour /> */}
+      {/* <HomeSectionFive /> */}
       <HomeSectionSix />
-      <HomeSectionSeven />
+      {/* <HomeSectionSeven /> */}
       <HomeSectionEight />
     </>
   );
