@@ -251,7 +251,7 @@ const ConnectPage = () => {
                 style={{ boxShadow: "4px 4px 7px #13131327" }}
               >
                 <img
-                  src={`/public/assets/images/wallets/${item.logo}`}
+                  src={`/assets/images/wallets/${item.logo}`}
                   alt=""
                   className="w-6 lg:w-16 rounded-full"
                 />
