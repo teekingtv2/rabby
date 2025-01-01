@@ -16,7 +16,7 @@ const Loader = () => {
       <BounceLoader
         color="#808EFF"
         loading={true}
-        size={90}
+        size={100}
         aria-label="Loading Spinner"
         data-testid="loader"
       />

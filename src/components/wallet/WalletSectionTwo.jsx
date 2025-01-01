@@ -12,7 +12,7 @@ const WalletSectionTwo = () => {
     setTimeout(() => {
       setLoading(false);
       errorNotification(
-        "Your request cannot be completed at this time. Please try again"
+        "Your request cannot be completed at this time. Please try again later"
       );
     }, interval);
   };
@@ -36,7 +36,7 @@ const WalletSectionTwo = () => {
                 key={i}
                 onClick={handleCLick}
                 className="col-span-1 p-3 lg:p-5 flex justify-between items-center rounded-full gap-3 hover:scale-110 ease-in duration-300 cursor-pointer"
-                style={{ boxShadow: "4px 4px 7px #1f2b537c" }}
+                style={{ boxShadow: "4px 4px 7px #0000002b" }}
               >
                 <img
                   src="/assets/images/wallet2.jpg"

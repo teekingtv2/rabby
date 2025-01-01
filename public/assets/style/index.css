@@ -58,7 +58,8 @@ html {
     font-weight: 500;
   }
 
-  input {
+  input,
+  textarea {
     @apply h-[42px] py-2 px-[15px] text-sm text-black bg-transparent border-[1px] border-[#222] rounded-md;
   }
 
@@ -118,7 +119,7 @@ html {
 }
 .btnn2 {
   @apply bg-[#FFFFFF] text-[#6e89e4] rounded-lg hover:bg-[#85a1fe3f] hover:text-white hover:scale-105 ease-in duration-300 cursor-pointer;
-  box-shadow: 4px 4px 7px #032e2a77;
+  box-shadow: 4px 4px 7px #13131327;
 }
 .btnn1-disabled {
   @apply bg-[#032e2a] text-black rounded-lg hover:bg-[#12DEC6] hover:scale-105 ease-in duration-300 cursor-pointer;

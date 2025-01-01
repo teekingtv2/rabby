@@ -62,18 +62,18 @@ const WalletSectionOne = () => {
             here
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center gap-6 lg:gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 items-center gap-5 lg:gap-10">
           {data.length &&
             data.map((item, i) => (
               <div
                 key={i}
-                className="col-span-1 p-5 flex justify-between items-center bg-[#fff] rounded-xl"
+                className="col-span-1 p-3 lg:p-5 flex justify-between items-center bg-[#fff] rounded-xl"
                 style={{ boxShadow: "4px 4px 7px #13131327" }}
               >
-                <p className="text-lg">{item.Symbol}</p>
+                <p className="text-md lg:text-lg">{item.Symbol}</p>
                 <div className="flex flex-col items-end">
-                  <p className="text-sm">{item.currency_name}</p>
-                  <span className="text-sm">
+                  <p className="text-[12px] lg:text-sm">{item.currency_name}</p>
+                  <span className="text-[12px] lg:text-sm">
                     {Number(item.balance)?.toFixed(6)}
                   </span>
                 </div>

